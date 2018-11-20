@@ -1,10 +1,9 @@
-package com.yingu.project.big.data.service.impl;
+package com.yingu.project.big.data.service.internetbank;
 
 import com.yingu.project.big.data.common.ResponseResult;
 import com.yingu.project.big.data.common.WyStatus;
 import com.yingu.project.big.data.persistence.entity.internetbank.*;
 import com.yingu.project.big.data.persistence.mapper.internetbank.*;
-import com.yingu.project.big.data.service.InternetBankService;
 import com.yingu.project.big.data.util.SubStringUUID;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

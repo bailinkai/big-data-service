@@ -14,14 +14,14 @@ import lombok.Setter;
 @Setter
 public class RequestParamException extends BigDataBaseException{
 
-    private String code;
+    private Integer code;
 
     public RequestParamException(String message){
         super(message);
         this.code = ResponseCode.PARAM_INVALID.getCode();
     }
 
-    public RequestParamException(String code, String message){
+    public RequestParamException(Integer code, String message){
         super(message);
         this.code = code;
     }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.sb.SbDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.sb.SbDetail" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uuid" property="uuid" jdbcType="VARCHAR" />
+    <result column="order_num" property="orderNum" jdbcType="VARCHAR" />
+    <result column="details_id" property="detailsId" jdbcType="VARCHAR" />
+    <result column="total_pay" property="totalPay" jdbcType="VARCHAR" />
+    <result column="end_time" property="endTime" jdbcType="VARCHAR" />
+    <result column="soins_type" property="soinsType" jdbcType="VARCHAR" />
+    <result column="soins_nature" property="soinsNature" jdbcType="VARCHAR" />
+    <result column="pay_cardi" property="payCardi" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="VARCHAR" />
+    <result column="pson_pay" property="psonPay" jdbcType="VARCHAR" />
+    <result column="comp_pay" property="compPay" jdbcType="VARCHAR" />
+    <result column="pay_months" property="payMonths" jdbcType="VARCHAR" />
+    <result column="soins_company" property="soinsCompany" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <select id="orderBy" resultMap="BaseResultMap" parameterType="java.lang.String">
+  SELECT
+      pay_cardi,
+      soins_nature,
+      soins_company,
+      soins_type,
+      comp_pay,
+      pson_pay,
+      start_time,
+      end_time,
+      pay_months,
+      total_pay
+
+
+  FROM
+        sb_detail
+  WHERE
+        details_id = #{detailsId}
+  ORDER BY
+        DATE_FORMAT(start_time, '%Y%m%d') DESC
+  </select>
+
+</mapper>

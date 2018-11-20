@@ -20,7 +20,7 @@ import java.io.Serializable;
 public class ResponseResult implements Serializable {
 
     @ApiModelProperty(value = "业务码", required = true, example = "1000")
-    protected String code;
+    protected Integer code;
     @ApiModelProperty(value = "业务描述", required = true, example = "调用成功")
     protected String msg;
     @ApiModelProperty(value = "业务数据，如调用成功，数据模型参见响应消息部分", required = true, example = "业务数据，如调用成功，数据模型参见响应消息部分")
@@ -29,12 +29,12 @@ public class ResponseResult implements Serializable {
     public ResponseResult() {
     }
 
-    public ResponseResult(String code, String msg) {
+    public ResponseResult(Integer code, String msg) {
         this.code = code;
         this.msg = msg;
     }
 
-    public ResponseResult(String code, String msg, Object data) {
+    public ResponseResult(Integer code, String msg, Object data) {
         this.code = code;
         this.msg = msg;
         this.data = data;

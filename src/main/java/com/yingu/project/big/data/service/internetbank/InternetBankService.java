@@ -1,4 +1,4 @@
-package com.yingu.project.big.data.service;
+package com.yingu.project.big.data.service.internetbank;
 
 import com.yingu.project.big.data.common.ResponseResult;
 

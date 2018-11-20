@@ -1,7 +1,8 @@
 package com.yingu.project.big.data.resource;
 
 import com.yingu.project.big.data.common.ResponseResult;
-import com.yingu.project.big.data.service.InternetBankService;
+
+import com.yingu.project.big.data.service.internetbank.InternetBankService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
