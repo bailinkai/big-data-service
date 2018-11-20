@@ -2,6 +2,7 @@ package com.yingu.project.big.data.service;
 
 import com.yingu.project.big.data.common.ResponseResult;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -10,6 +11,8 @@ import java.util.Map;
  * @Description
  */
 public interface InternetBankService {
+
+    boolean insertList(List<Map<String, Object>> dataList, String orderNum);
 
     ResponseResult getDataByOrderNum(Map<String, Object> map);
 }
