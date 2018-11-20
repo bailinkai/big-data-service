@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.internetbank.InternetBankingShoppingDetailMapper">
+    <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.internetbank.InternetBankingShoppingDetail">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="uuid" property="uuid" jdbcType="VARCHAR"/>
+        <result column="order_num" property="orderNum" jdbcType="VARCHAR"/>
+        <result column="shopping_sheets_id" property="shoppingSheetsId" jdbcType="VARCHAR"/>
+        <result column="shoppingsheet_id" property="shoppingsheetId" jdbcType="VARCHAR"/>
+        <result column="card_num" property="cardNum" jdbcType="VARCHAR"/>
+        <result column="post_date" property="postDate" jdbcType="VARCHAR"/>
+        <result column="category" property="category" jdbcType="VARCHAR"/>
+        <result column="order_index" property="orderIndex" jdbcType="INTEGER"/>
+        <result column="trans_date" property="transDate" jdbcType="TIMESTAMP"/>
+        <result column="currency_type" property="currencyType" jdbcType="VARCHAR"/>
+        <result column="amount_money" property="amountMoney" jdbcType="DECIMAL"/>
+        <result column="balance" property="balance" jdbcType="DECIMAL"/>
+        <result column="trans_method" property="transMethod" jdbcType="VARCHAR"/>
+        <result column="trans_channel" property="transChannel" jdbcType="VARCHAR"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="opposite_card_no" property="oppositeCardNo" jdbcType="VARCHAR"/>
+        <result column="name_on_opposite_card" property="nameOnOppositeCard" jdbcType="VARCHAR"/>
+        <result column="opposite_bank" property="oppositeBank" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="trans_addr" property="transAddr" jdbcType="LONGVARCHAR"/>
+    </resultMap>
+    <update id="updateByOrderNumAndShoppingSheetId" parameterType="map">
+    update internet_banking_shopping_detail set uuid = #{uuid},shopping_sheets_id = #{shoppingSheetsId},card_num = #{cardNum},post_date = #{postDate},category = #{category},
+    order_index = #{orderIndex},trans_date = #{transDate},currency_type = #{currencyType},amount_money = #{amountMoney},balance = #{balance},trans_method = #{transMethod},
+    trans_channel = #{transChannel},description = #{description},remark = #{remark},opposite_card_no = #{oppositeCardNo},name_on_opposite_card = #{nameOnOppositeCard},
+    opposite_bank = #{oppositeBank},create_time = #{createTime},trans_addr = #{transAddr} where order_num = #{orderNum} and shoppingsheet_id = #{shoppingsheetId}
+  </update>
+    <select id="selectByBillsId" resultMap="BaseResultMap" parameterType="map">
+        select card_num,post_date,trans_date,trans_addr,trans_method,currency_type,category,amount_money,opposite_card_no,name_on_opposite_card,opposite_bank,
+        remark,description,balance from internet_banking_shopping_detail where shopping_sheets_id in (select shopping_sheets_id from internet_banking_bill_detail where bills_id = #{bills_id} and order_num = #{order_num})
+        order by trans_date desc
+    </select>
+    <select id="selectByShoppingSheetsId" resultMap="BaseResultMap" parameterType="map">
+        select card_num,post_date,category,trans_date,currency_type,amount_money,remark,description from internet_banking_shopping_detail where order_num = #{order_num}
+        and shopping_sheets_id = #{shopping_sheets_id}
+    </select>
+</mapper>

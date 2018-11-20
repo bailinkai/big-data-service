@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.internetbank.InternetBankingBaseInfoMapper">
+    <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.internetbank.InternetBankingBaseInfo">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="uuid" property="uuid" jdbcType="VARCHAR"/>
+        <result column="order_num" property="orderNum" jdbcType="VARCHAR"/>
+        <result column="card_id" property="cardId" jdbcType="VARCHAR"/>
+        <result column="card_type" property="cardType" jdbcType="VARCHAR"/>
+        <result column="bank_name" property="bankName" jdbcType="VARCHAR"/>
+        <result column="bank_id" property="bankId" jdbcType="VARCHAR"/>
+        <result column="card_num" property="cardNum" jdbcType="VARCHAR"/>
+        <result column="name_on_card" property="nameOnCard" jdbcType="VARCHAR"/>
+        <result column="balance" property="balance" jdbcType="DECIMAL"/>
+        <result column="credit_limit" property="creditLimit" jdbcType="DECIMAL"/>
+        <result column="cash_balance" property="cashBalance" jdbcType="DECIMAL"/>
+        <result column="cash_limit" property="cashLimit" jdbcType="DECIMAL"/>
+        <result column="open_bank" property="openBank" jdbcType="VARCHAR"/>
+        <result column="open_time" property="openTime" jdbcType="VARCHAR"/>
+        <result column="current_bill_amt" property="currentBillAmt" jdbcType="DECIMAL"/>
+        <result column="current_bill_paid_amt" property="currentBillPaidAmt" jdbcType="DECIMAL"/>
+        <result column="current_bill_remain_amt" property="currentBillRemainAmt" jdbcType="DECIMAL"/>
+        <result column="current_bill_remain_min_payment" property="currentBillRemainMinPayment" jdbcType="DECIMAL"/>
+        <result column="deposits_id" property="depositsId" jdbcType="VARCHAR"/>
+        <result column="bills_id" property="billsId" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="full_card_num" property="fullCardNum" jdbcType="LONGVARCHAR"/>
+    </resultMap>
+    <update id="updateByOrderNumAndFullCardNum" parameterType="map">
+    update internet_banking_base_info set uuid = #{uuid},card_id = #{cardId},card_type = #{cardType},bank_name = #{bankName},bank_id = #{bankId},card_num = #{cardNum},
+    name_on_card = #{nameOnCard},balance = #{balance},credit_limit = #{creditLimit},cash_balance = #{cashBalance},cash_limit = #{cashLimit},open_bank = #{openBank},
+    open_time = #{openTime},current_bill_amt = #{currentBillAmt},current_bill_paid_amt = #{currentBillPaidAmt},current_bill_remain_amt = #{currentBillRemainAmt},
+    current_bill_remain_min_payment = #{currentBillRemainMinPayment},bills_id = #{billsId},create_time = #{createTime} where order_num = #{orderNum} and full_card_num = #{fullCardNum}
+  </update>
+    <select id="selectByOrderNum" parameterType="map" resultMap="BaseResultMap">
+        select order_num,card_id,card_type,bank_name,bank_id,card_num,name_on_card,balance,credit_limit,cash_balance,cash_limit,open_bank,open_time,current_bill_amt,current_bill_paid_amt
+        ,current_bill_remain_amt,current_bill_remain_min_payment,deposits_id,bills_id,create_time,full_card_num from internet_banking_base_info where order_num = #{order_num}
+    </select>
+</mapper>

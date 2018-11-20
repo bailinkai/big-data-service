@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.internetbank.InternetBankingBillDetailMapper">
+    <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.internetbank.InternetBankingBillDetail">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="uuid" property="uuid" jdbcType="VARCHAR"/>
+        <result column="order_num" property="orderNum" jdbcType="VARCHAR"/>
+        <result column="bills_id" property="billsId" jdbcType="VARCHAR"/>
+        <result column="bill_id" property="billId" jdbcType="VARCHAR"/>
+        <result column="bill_type" property="billType" jdbcType="VARCHAR"/>
+        <result column="bank_name" property="bankName" jdbcType="VARCHAR"/>
+        <result column="bill_month" property="billMonth" jdbcType="VARCHAR"/>
+        <result column="bill_date" property="billDate" jdbcType="VARCHAR"/>
+        <result column="payment_due_date" property="paymentDueDate" jdbcType="VARCHAR"/>
+        <result column="new_balance" property="newBalance" jdbcType="DECIMAL"/>
+        <result column="usd_new_balance" property="usdNewBalance" jdbcType="DECIMAL"/>
+        <result column="min_payment" property="minPayment" jdbcType="DECIMAL"/>
+        <result column="usd_min_payment" property="usdMinPayment" jdbcType="DECIMAL"/>
+        <result column="last_balance" property="lastBalance" jdbcType="DECIMAL"/>
+        <result column="usd_last_balance" property="usdLastBalance" jdbcType="DECIMAL"/>
+        <result column="last_payment" property="lastPayment" jdbcType="DECIMAL"/>
+        <result column="usd_last_payment" property="usdLastPayment" jdbcType="DECIMAL"/>
+        <result column="new_charges" property="newCharges" jdbcType="DECIMAL"/>
+        <result column="usd_new_charges" property="usdNewCharges" jdbcType="DECIMAL"/>
+        <result column="interest" property="interest" jdbcType="DECIMAL"/>
+        <result column="usd_interest" property="usdInterest" jdbcType="DECIMAL"/>
+        <result column="adjust" property="adjust" jdbcType="DECIMAL"/>
+        <result column="usd_adjust" property="usdAdjust" jdbcType="DECIMAL"/>
+        <result column="credit_limit" property="creditLimit" jdbcType="DECIMAL"/>
+        <result column="usd_credit_limit" property="usdCreditLimit" jdbcType="DECIMAL"/>
+        <result column="cash_limit" property="cashLimit" jdbcType="DECIMAL"/>
+        <result column="usd_cash_limit" property="usdCashLimit" jdbcType="DECIMAL"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="shopping_sheets_id" property="shoppingSheetsId" jdbcType="VARCHAR"/>
+        <result column="installments_id" property="installmentsId" jdbcType="VARCHAR"/>
+    </resultMap>
+    <update id="updateByOrderNumAndBillId" parameterType="map">
+      update internet_banking_bill_detail set uuid = #{uuid},bills_id = #{billsId},bill_type = #{billType},bank_name = #{bankName},bill_month = #{billMonth},bill_date = #{billDate},
+      payment_due_date = #{paymentDueDate},new_balance = #{newBalance},usd_new_balance = #{usdNewBalance},min_payment = #{minPayment},usd_min_payment = #{usdMinPayment},last_balance = #{lastBalance},
+      usd_last_balance = #{usdLastBalance},last_payment = #{lastPayment},usd_last_payment = #{usdLastPayment},new_charges = #{newCharges},usd_new_charges = #{usdNewCharges},
+      interest = #{interest},usd_interest = #{usdInterest},adjust = #{adjust},usd_adjust = #{usdAdjust},credit_limit = #{creditLimit},usd_credit_limit = #{usdCreditLimit},cash_limit = #{cashLimit},
+      usd_cash_limit = #{usdCashLimit},create_time = #{createTime},shopping_sheets_id = #{shoppingSheetsId},installments_id = #{installmentsId} where order_num = #{orderNum} and bill_id = #{billId}
+    </update>
+    <select id="selectByOrderNumAndTime" parameterType="map" resultMap="BaseResultMap">
+        select bank_name,bill_type,bill_month,bill_date,payment_due_date,new_balance,usd_new_balance,min_payment,usd_min_payment,
+        installments_id,shopping_sheets_id from internet_banking_bill_detail where
+        order_num = #{order_num} and bills_id = #{bills_id}
+        <if test="startTime != null and startTime != ''">
+           and bill_date BETWEEN #{startTime} and #{endTime}
+        </if>
+    </select>
+</mapper>

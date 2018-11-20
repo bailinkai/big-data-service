@@ -40,36 +40,36 @@ public class ResponseResult implements Serializable {
         this.data = data;
     }
 
-    public static ResponseResult newSuccessInstance(){
+    public static ResponseResult ok(){
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getDescription());
     }
 
-    public static ResponseResult newSuccessInstance(String message){
+    public static ResponseResult ok(String message){
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), message);
     }
 
-    public static ResponseResult newSuccessInstance(Object data){
+    public static ResponseResult ok(Object data){
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getDescription(),data);
     }
 
-    public static ResponseResult newSuccessInstance(String message,Object data){
+    public static ResponseResult ok(String message,Object data){
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), message,data);
     }
 
 
-    public static ResponseResult newFailInstance(){
+    public static ResponseResult fail(){
         return new ResponseResult(ResponseCode.ERROR.getCode(), ResponseCode.ERROR.getDescription());
     }
 
-    public static ResponseResult newFailInstance(String message){
+    public static ResponseResult fail(String message){
         return new ResponseResult(ResponseCode.ERROR.getCode(), message);
     }
 
-    public static ResponseResult newFailInstance(Object data){
+    public static ResponseResult fail(Object data){
         return new ResponseResult(ResponseCode.ERROR.getCode(), ResponseCode.ERROR.getDescription(),data);
     }
 
-    public static ResponseResult newFailInstance(String message,Object data){
+    public static ResponseResult fail(String message,Object data){
         return new ResponseResult(ResponseCode.ERROR.getCode(), message,data);
     }
 

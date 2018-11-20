@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.internetbank.InternetBankingInstallmentDetailMapper">
+    <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.internetbank.InternetBankingInstallmentDetail">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="uuid" property="uuid" jdbcType="VARCHAR"/>
+        <result column="order_num" property="orderNum" jdbcType="VARCHAR"/>
+        <result column="installments_id" property="installmentsId" jdbcType="VARCHAR"/>
+        <result column="shoppingsheet_id" property="shoppingsheetId" jdbcType="VARCHAR"/>
+        <result column="post_date" property="postDate" jdbcType="VARCHAR"/>
+        <result column="trans_date" property="transDate" jdbcType="TIMESTAMP"/>
+        <result column="installment_desc" property="installmentDesc" jdbcType="VARCHAR"/>
+        <result column="handingfee_desc" property="handingfeeDesc" jdbcType="VARCHAR"/>
+        <result column="transferfee_desc" property="transferfeeDesc" jdbcType="VARCHAR"/>
+        <result column="installment_type" property="installmentType" jdbcType="VARCHAR"/>
+        <result column="total_month" property="totalMonth" jdbcType="SMALLINT"/>
+        <result column="current_month" property="currentMonth" jdbcType="SMALLINT"/>
+        <result column="currency_type" property="currencyType" jdbcType="VARCHAR"/>
+        <result column="amount_money" property="amountMoney" jdbcType="DECIMAL"/>
+        <result column="handing_fee" property="handingFee" jdbcType="DECIMAL"/>
+        <result column="transfer_fee" property="transferFee" jdbcType="DECIMAL"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <update id="updateByOrderNumAndShoppingsheetId" parameterType="map">
+    update internet_banking_installment_detail set uuid = #{uuid},installments_id = #{installmentsId},post_date = #{postDate},trans_date = #{transDate},installment_desc = #{installmentDesc},
+    handingfee_desc = #{handingfeeDesc},installment_type = #{installmentType},total_month = #{totalMonth},current_month = #{currentMonth},currency_type = #{currencyType},amount_money = #{amountMoney},
+    handing_fee = #{handingFee},transfer_fee = #{transferFee},create_time = #{createTime} where order_num = #{orderNum} and shoppingsheet_id = #{shoppingsheetId}
+  </update>
+    <select id="selectByInstallmentsId" parameterType="map" resultMap="BaseResultMap">
+        select installment_desc,trans_date,post_date,currency_type,amount_money,total_month,current_month,installment_type from internet_banking_installment_detail
+        where order_num = #{order_num} and installments_id = #{installments_id}
+    </select>
+</mapper>

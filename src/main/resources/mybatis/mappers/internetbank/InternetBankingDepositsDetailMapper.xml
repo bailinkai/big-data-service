@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.internetbank.InternetBankingDepositsDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.internetbank.InternetBankingDepositsDetail" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uuid" property="uuid" jdbcType="VARCHAR" />
+    <result column="order_num" property="orderNum" jdbcType="VARCHAR" />
+    <result column="deposits_id" property="depositsId" jdbcType="VARCHAR" />
+    <result column="balance" property="balance" jdbcType="DECIMAL" />
+    <result column="deposit_type" property="depositType" jdbcType="VARCHAR" />
+    <result column="currency_type" property="currencyType" jdbcType="VARCHAR" />
+    <result column="deposit_date" property="depositDate" jdbcType="VARCHAR" />
+    <result column="due_date" property="dueDate" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="INTEGER" />
+    <result column="period_unit" property="periodUnit" jdbcType="VARCHAR" />
+    <result column="interest" property="interest" jdbcType="DECIMAL" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <select id="selectByDepositsId" resultMap="BaseResultMap" parameterType="map">
+      select deposit_type,balance,period,period_unit,deposit_date,due_date from internet_banking_deposits_detail where order_num = #{order_num} and deposits_id = #{deposits_id}
+  </select>
+</mapper>
