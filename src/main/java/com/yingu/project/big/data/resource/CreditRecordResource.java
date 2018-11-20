@@ -1,6 +1,7 @@
 package com.yingu.project.big.data.resource;
 
 import com.yingu.project.big.data.common.ResponseResult;
+import com.yingu.project.big.data.service.bxd.InsuranceService;
 import com.yingu.project.big.data.service.shebao.SheBaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,16 +22,32 @@ public class CreditRecordResource {
 
     @Autowired
     SheBaoService sheBaoService;
+    @Autowired
+    InsuranceService insuranceService;
 
     /**
      * 社保
      * @param param
      * @return
      */
-    @RequestMapping(value = "api/provide/sb",method = RequestMethod.POST)
+    @RequestMapping(value = "/api/provide/sb",method = RequestMethod.POST)
     public ResponseResult getSheBaoInfo(@RequestBody Map<String, Object> param){
         Map<String, Object> datas = (Map<String, Object>) param.get("datas");
         String orderNum = datas.get("order_num").toString();
         return sheBaoService.getSheBaoInfo(orderNum);
     }
+
+    /**
+     * 保险单
+     * @param param
+     * @return
+     */
+    @RequestMapping(value = "/api/provide/bxd",method = RequestMethod.POST)
+    public ResponseResult testGetBxdInfo(@RequestBody Map<String, Object> param){
+        Map<String, Object> datas = (Map<String, Object>) param.get("datas");
+        String orderNumber = datas.get("order_num").toString();
+        return insuranceService.getAllInfo(orderNumber);
+    }
+
+
 }
