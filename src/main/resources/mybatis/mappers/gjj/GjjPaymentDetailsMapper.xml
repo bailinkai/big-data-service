@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.gjj.GjjPaymentDetailsMapper" >
+  <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.gjj.GjjPaymentDetails" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uuid" property="uuid" jdbcType="VARCHAR" />
+    <result column="order_num" property="orderNum" jdbcType="VARCHAR" />
+    <result column="payment_details_id" property="paymentDetailsId" jdbcType="VARCHAR" />
+    <result column="payment_date" property="paymentDate" jdbcType="VARCHAR" />
+    <result column="payment_num" property="paymentNum" jdbcType="VARCHAR" />
+    <result column="payment_principal" property="paymentPrincipal" jdbcType="VARCHAR" />
+    <result column="payment_interest" property="paymentInterest" jdbcType="VARCHAR" />
+    <result column="payment_penalty" property="paymentPenalty" jdbcType="VARCHAR" />
+    <result column="payment_sum" property="paymentSum" jdbcType="VARCHAR" />
+    <result column="prin_balance" property="prinBalance" jdbcType="VARCHAR" />
+    <result column="payment_describe" property="paymentDescribe" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

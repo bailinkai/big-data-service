@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.gjj.GjjLoanInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.gjj.GjjLoanInfo" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uuid" property="uuid" jdbcType="VARCHAR" />
+    <result column="order_num" property="orderNum" jdbcType="VARCHAR" />
+    <result column="loan_info_id" property="loanInfoId" jdbcType="VARCHAR" />
+    <result column="loan_name" property="loanName" jdbcType="VARCHAR" />
+    <result column="loan_idcard" property="loanIdcard" jdbcType="VARCHAR" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="bank_name" property="bankName" jdbcType="VARCHAR" />
+    <result column="bank_account" property="bankAccount" jdbcType="VARCHAR" />
+    <result column="loan_num" property="loanNum" jdbcType="VARCHAR" />
+    <result column="loan_amount" property="loanAmount" jdbcType="VARCHAR" />
+    <result column="loan_length" property="loanLength" jdbcType="VARCHAR" />
+    <result column="loan_rate" property="loanRate" jdbcType="VARCHAR" />
+    <result column="loan_status" property="loanStatus" jdbcType="VARCHAR" />
+    <result column="guarantee_type" property="guaranteeType" jdbcType="VARCHAR" />
+    <result column="payment_type" property="paymentType" jdbcType="VARCHAR" />
+    <result column="payment_day" property="paymentDay" jdbcType="VARCHAR" />
+    <result column="loan_date" property="loanDate" jdbcType="VARCHAR" />
+    <result column="house_type" property="houseType" jdbcType="VARCHAR" />
+    <result column="payment_amount" property="paymentAmount" jdbcType="VARCHAR" />
+    <result column="due_principal" property="duePrincipal" jdbcType="VARCHAR" />
+    <result column="overdue_times" property="overdueTimes" jdbcType="VARCHAR" />
+    <result column="overdue_amount" property="overdueAmount" jdbcType="VARCHAR" />
+    <result column="payment_details_id" property="paymentDetailsId" jdbcType="VARCHAR" />
+    <result column="overdue_details_id" property="overdueDetailsId" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

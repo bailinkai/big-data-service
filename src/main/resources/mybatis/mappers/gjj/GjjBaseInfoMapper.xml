@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.gjj.GjjBaseInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.gjj.GjjBaseInfo" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uuid" property="uuid" jdbcType="VARCHAR" />
+    <result column="order_num" property="orderNum" jdbcType="VARCHAR" />
+    <result column="company_code" property="companyCode" jdbcType="VARCHAR" />
+    <result column="transfer_amount" property="transferAmount" jdbcType="VARCHAR" />
+    <result column="open_bank_account" property="openBankAccount" jdbcType="VARCHAR" />
+    <result column="employee_code" property="employeeCode" jdbcType="VARCHAR" />
+    <result column="id_card" property="idCard" jdbcType="VARCHAR" />
+    <result column="pay_base_amount" property="payBaseAmount" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="details_id" property="detailsId" jdbcType="VARCHAR" />
+    <result column="fund_amt" property="fundAmt" jdbcType="VARCHAR" />
+    <result column="deposit_ratio_personal" property="depositRatioPersonal" jdbcType="VARCHAR" />
+    <result column="open_date" property="openDate" jdbcType="VARCHAR" />
+    <result column="housing_fund_status" property="housingFundStatus" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="VARCHAR" />
+    <result column="open_bank_name" property="openBankName" jdbcType="VARCHAR" />
+    <result column="company" property="company" jdbcType="VARCHAR" />
+    <result column="deposit_ratio_company" property="depositRatioCompany" jdbcType="VARCHAR" />
+    <result column="last_fund_date" property="lastFundDate" jdbcType="VARCHAR" />
+    <result column="data_source" property="dataSource" jdbcType="VARCHAR" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="token" property="token" jdbcType="VARCHAR" />
+    <result column="fund_num" property="fundNum" jdbcType="VARCHAR" />
+    <result column="balance" property="balance" jdbcType="VARCHAR" />
+    <result column="loan_info_id" property="loanInfoId" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

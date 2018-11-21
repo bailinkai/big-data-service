@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.gjj.GjjDetialsMapper">
+    <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.gjj.GjjDetials">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="uuid" property="uuid" jdbcType="VARCHAR"/>
+        <result column="order_num" property="orderNum" jdbcType="VARCHAR"/>
+        <result column="detials_id" property="detialsId" jdbcType="VARCHAR"/>
+        <result column="note" property="note" jdbcType="VARCHAR"/>
+        <result column="trading_amt" property="tradingAmt" jdbcType="VARCHAR"/>
+        <result column="trading_date" property="tradingDate" jdbcType="VARCHAR"/>
+        <result column="transfer_amount" property="transferAmount" jdbcType="VARCHAR"/>
+        <result column="pay_base" property="payBase" jdbcType="VARCHAR"/>
+        <result column="balance" property="balance" jdbcType="VARCHAR"/>
+        <result column="company" property="company" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="orderBy"  resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+            note,
+            trading_amt,
+            trading_date,
+            transfer_amount,
+            balance
+        FROM
+            gjj_detials
+        WHERE
+            detials_id = #{detialsId}
+        ORDER BY
+            DATE_FORMAT(trading_date, '%y%m%d') DESC;
+    </select>
+</mapper>
