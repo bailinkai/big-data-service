@@ -3,6 +3,7 @@ package com.yingu.project.big.data.resource;
 import com.yingu.project.big.data.common.ResponseResult;
 import com.yingu.project.big.data.service.bxd.InsuranceService;
 import com.yingu.project.big.data.service.gjj.GjjService;
+import com.yingu.project.big.data.service.rhzx.RhService;
 import com.yingu.project.big.data.service.shebao.SheBaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,6 +28,8 @@ public class CreditRecordResource {
     InsuranceService insuranceService;
     @Autowired
     GjjService gjjService;
+    @Autowired
+    RhService rhService;
 
     /**
      * 社保
@@ -62,6 +65,19 @@ public class CreditRecordResource {
         Map<String, Object> datas = (Map<String, Object>) param.get("datas");
         String order_num = datas.get("order_num").toString();
         return gjjService.getGJJInfo(order_num);
+    }
+
+    /**
+     * 人行征信
+     *
+     * @param param
+     * @return
+     */
+    @RequestMapping(value = "api/provide/rh", method = RequestMethod.POST)
+    public ResponseResult getRhInfo(@RequestBody Map<String, Object> param) {
+        Map<String, Object> datas = (Map<String, Object>) param.get("datas");
+        String order_num = datas.get("order_num").toString();
+        return rhService.getRHInfos(order_num);
     }
 
 

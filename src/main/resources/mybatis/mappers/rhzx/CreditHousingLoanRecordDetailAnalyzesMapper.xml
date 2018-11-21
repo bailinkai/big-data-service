@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.rhzx.CreditHousingLoanRecordDetailAnalyzesMapper" >
+  <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.rhzx.CreditHousingLoanRecordDetailAnalyzes" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uuid" property="uuid" jdbcType="VARCHAR" />
+    <result column="order_num" property="orderNum" jdbcType="VARCHAR" />
+    <result column="mapping_id" property="mappingId" jdbcType="VARCHAR" />
+    <result column="report_no" property="reportNo" jdbcType="VARCHAR" />
+    <result column="record_detail_auto_id" property="recordDetailAutoId" jdbcType="INTEGER" />
+    <result column="grant_date" property="grantDate" jdbcType="VARCHAR" />
+    <result column="bank_name" property="bankName" jdbcType="VARCHAR" />
+    <result column="currency" property="currency" jdbcType="VARCHAR" />
+    <result column="loan_amount" property="loanAmount" jdbcType="DECIMAL" />
+    <result column="loan_item" property="loanItem" jdbcType="VARCHAR" />
+    <result column="expiration_date" property="expirationDate" jdbcType="VARCHAR" />
+    <result column="cutoff_date" property="cutoffDate" jdbcType="VARCHAR" />
+    <result column="is_closeout" property="isCloseout" jdbcType="BIT" />
+    <result column="remain_balance" property="remainBalance" jdbcType="DECIMAL" />
+    <result column="is_overdue" property="isOverdue" jdbcType="BIT" />
+    <result column="overdue_month" property="overdueMonth" jdbcType="INTEGER" />
+    <result column="overdue_amount" property="overdueAmount" jdbcType="DECIMAL" />
+    <result column="is_nintydays_overdue" property="isNintydaysOverdue" jdbcType="BIT" />
+    <result column="nintydays_overdue_month" property="nintydaysOverdueMonth" jdbcType="INTEGER" />
+    <result column="transfer" property="transfer" jdbcType="BIT" />
+    <result column="transfer_date" property="transferDate" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

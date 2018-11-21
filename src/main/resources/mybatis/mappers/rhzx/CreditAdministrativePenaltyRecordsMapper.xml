@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.rhzx.CreditAdministrativePenaltyRecordsMapper" >
+  <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.rhzx.CreditAdministrativePenaltyRecords" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uuid" property="uuid" jdbcType="VARCHAR" />
+    <result column="order_num" property="orderNum" jdbcType="VARCHAR" />
+    <result column="mapping_id" property="mappingId" jdbcType="VARCHAR" />
+    <result column="report_no" property="reportNo" jdbcType="VARCHAR" />
+    <result column="institution" property="institution" jdbcType="VARCHAR" />
+    <result column="penalty" property="penalty" jdbcType="VARCHAR" />
+    <result column="archive_num" property="archiveNum" jdbcType="VARCHAR" />
+    <result column="administrative_review" property="administrativeReview" jdbcType="VARCHAR" />
+    <result column="penalty_amount" property="penaltyAmount" jdbcType="DECIMAL" />
+    <result column="review_result" property="reviewResult" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="VARCHAR" />
+    <result column="end_time" property="endTime" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

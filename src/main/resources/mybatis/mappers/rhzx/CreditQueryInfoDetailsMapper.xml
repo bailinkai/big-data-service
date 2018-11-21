@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.rhzx.CreditQueryInfoDetailsMapper">
+    <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.rhzx.CreditQueryInfoDetails">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="uuid" property="uuid" jdbcType="VARCHAR"/>
+        <result column="order_num" property="orderNum" jdbcType="VARCHAR"/>
+        <result column="mapping_id" property="mappingId" jdbcType="VARCHAR"/>
+        <result column="report_no" property="reportNo" jdbcType="VARCHAR"/>
+        <result column="query_date_time" property="queryDateTime" jdbcType="VARCHAR"/>
+        <result column="query_operator" property="queryOperator" jdbcType="VARCHAR"/>
+        <result column="query_reason" property="queryReason" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+
+    <select id="selectQueryMap" resultMap="BaseResultMap" parameterType="map">
+        select query_date_time,query_operator,query_reason from credit_query_info_details where order_num = #{order_num}
+        <if test="status == 0 ">
+            and query_reason not like '%本人%'
+        </if>
+        <if test="status == 1 ">
+            and query_reason like '%本人%'
+        </if>
+        ORDER BY DATE_FORMAT(query_date_time,'%y%m%d') desc;
+    </select>
+
+    <select id="selectQuerys" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select query_date_time,query_operator,query_reason from credit_query_info_details  where order_num = #{order_num} ORDER BY DATE_FORMAT(query_date_time,'%y%m%d') desc;
+    </select>
+
+    <select id="getSixMonthOrgQuery" resultType="java.lang.Integer" parameterType="java.lang.String">
+        select count(1) from credit_query_info_details where order_num = #{order_num} and DATE_SUB(CURDATE(),INTERVAL 180
+        DAY) <![CDATA[<=]]> STR_TO_DATE(query_date_time,'%Y-%m-%d') and query_reason not like '%本人%';
+    </select>
+
+    <select id="getThreeMonthCredit" resultType="java.lang.Integer" parameterType="java.lang.String">
+        select count(1) from credit_query_info_details where order_num = #{order_num} and DATE_SUB(CURDATE(),INTERVAL 90
+        DAY) <![CDATA[<=]]> STR_TO_DATE(query_date_time,'%Y-%m-%d') and (query_reason like '%信用卡审批%' OR query_reason like '%贷款审批%' );
+    </select>
+
+    <select id="getSixMonthCredit" resultType="java.lang.Integer" parameterType="java.lang.String">
+        select count(1) from credit_query_info_details where order_num = #{order_num} and DATE_SUB(CURDATE(),INTERVAL 180
+        DAY) <![CDATA[<=]]> STR_TO_DATE(query_date_time,'%Y-%m-%d') and (query_reason like '%信用卡审批%' OR query_reason like '%贷款审批%' );
+    </select>
+
+    <select id="getThreeMonthPerQuery" resultType="java.lang.Integer" parameterType="java.lang.String">
+        select count(1) from credit_query_info_details where order_num = #{order_num} and DATE_SUB(CURDATE(),INTERVAL 90
+        DAY) <![CDATA[<=]]> STR_TO_DATE(query_date_time,'%Y-%m-%d') and query_reason like '%本人%';
+    </select>
+
+    <select id="getSixMonthPerQuery" resultType="java.lang.Integer" parameterType="java.lang.String">
+        select count(1) from credit_query_info_details where order_num = #{order_num} and DATE_SUB(CURDATE(),INTERVAL 180
+        DAY) <![CDATA[<=]]> STR_TO_DATE(query_date_time,'%Y-%m-%d') and query_reason like '%本人%';
+    </select>
+
+
+    <select id="getGreaterThreeMonthNumberQuery" resultType="java.lang.Integer" parameterType="java.lang.String">
+        SELECT count(1) FROM credit_query_info_details WHERE order_num = #{order_num} AND DATE_SUB(
+        (SELECT query_time FROM credit_base_info WHERE order_num = #{order_num} LIMIT 1 ),
+        INTERVAL 180 DAY ) <![CDATA[<=]]> STR_TO_DATE(query_date_time, '%Y-%m-%d')
+        AND query_operator LIKE '%本人%';
+    </select>
+
+
+    <select id="getGreater90DaysQuery" resultType="java.lang.Integer" parameterType="java.lang.String">
+        SELECT count(1) FROM credit_query_info_details WHERE order_num = #{order_num} AND DATE_SUB(
+        (SELECT query_time FROM credit_base_info WHERE order_num = #{order_num} LIMIT 1 ),
+        INTERVAL 90 DAY ) <![CDATA[<=]]> STR_TO_DATE(query_date_time, '%Y-%m-%d')
+        AND query_operator LIKE '%本人%';
+    </select>
+
+</mapper>

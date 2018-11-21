@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.rhzx.CreditCardRecordDetailAnalyzesMapper">
+    <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.rhzx.CreditCardRecordDetailAnalyzes">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="uuid" property="uuid" jdbcType="VARCHAR"/>
+        <result column="order_num" property="orderNum" jdbcType="VARCHAR"/>
+        <result column="mapping_id" property="mappingId" jdbcType="VARCHAR"/>
+        <result column="report_no" property="reportNo" jdbcType="VARCHAR"/>
+        <result column="record_detail_auto_id" property="recordDetailAutoId" jdbcType="INTEGER"/>
+        <result column="grant_date" property="grantDate" jdbcType="VARCHAR"/>
+        <result column="bank_name" property="bankName" jdbcType="VARCHAR"/>
+        <result column="card_type" property="cardType" jdbcType="VARCHAR"/>
+        <result column="account_currency" property="accountCurrency" jdbcType="VARCHAR"/>
+        <result column="cutoff_date" property="cutoffDate" jdbcType="VARCHAR"/>
+        <result column="credit_limit" property="creditLimit" jdbcType="DECIMAL"/>
+        <result column="used_credit_line" property="usedCreditLine" jdbcType="DECIMAL"/>
+        <result column="overdraft_balance" property="overdraftBalance" jdbcType="DECIMAL"/>
+        <result column="overdue_amount" property="overdueAmount" jdbcType="DECIMAL"/>
+        <result column="is_actived" property="isActived" jdbcType="BIT"/>
+        <result column="is_closed" property="isClosed" jdbcType="BIT"/>
+        <result column="is_overdue" property="isOverdue" jdbcType="BIT"/>
+        <result column="overdue_nonth" property="overdueNonth" jdbcType="INTEGER"/>
+        <result column="is_sixtydays_overdraft" property="isSixtydaysOverdraft" jdbcType="BIT"/>
+        <result column="sixtydays_overdraft_nonth" property="sixtydaysOverdraftNonth" jdbcType="INTEGER"/>
+        <result column="is_nintydays_overdue" property="isNintydaysOverdue" jdbcType="BIT"/>
+        <result column="nintydays_overdue_nonth" property="nintydaysOverdueNonth" jdbcType="INTEGER"/>
+        <result column="bad_debts" property="badDebts" jdbcType="BIT"/>
+        <result column="remaining_sum" property="remainingSum" jdbcType="DECIMAL"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <select id="getCreditMonth" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select IFNULL(TIMESTAMPDIFF(MONTH,min(DATE_FORMAT(grant_date,'%Y-%m-%d')),NOW()),0) FROM credit_card_record_detail_analyzes where order_num = #{orderNum};
+  </select>
+    <select id="getAllAccount" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select sum(un_settle_un_cancel) from (
+select IFNULL(un_settle_un_cancel,0) un_settle_un_cancel from credit_record_summaries where order_num =#{orderNum} and credit_type = 3 union
+select count(1) un_settle_un_cancel from credit_card_record_detail_analyzes where order_num = #{orderNum}
+and is_closed = 0 and account_currency = '人民币账户') a;
+    </select>
+    <select id="getUnSettleUnCancel" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select count(1) from credit_card_record_detail_analyzes where order_num = #{orderNum} and is_closed = 0 and account_currency = '人民币账户'
+    </select>
+    <select id="getUsedLimit" parameterType="java.lang.String" resultType="java.lang.Double">
+        SELECT IFNULL(SUM(used_credit_line),0) FROM credit_card_record_detail_analyzes WHERE order_num = #{orderNum} AND account_currency = '人民币账户' AND is_closed = 0;
+    </select>
+
+    <select id="getRecordIsBadDebts" parameterType="java.lang.String" resultType="java.lang.String">
+    select bad_debts from credit_card_record_detail_analyzes where  order_num = #{orderNum} and bad_debts = 1
+    UNION
+    select bad_debts from credit_other_loan_record_detail_analyzes where order_num = #{orderNum} and bad_debts = 1
+    </select>
+
+</mapper>

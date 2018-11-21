@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.rhzx.CreditGuaranteeRecordDetailAnalyzesMapper" >
+  <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.rhzx.CreditGuaranteeRecordDetailAnalyzes" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uuid" property="uuid" jdbcType="VARCHAR" />
+    <result column="order_num" property="orderNum" jdbcType="VARCHAR" />
+    <result column="mapping_id" property="mappingId" jdbcType="VARCHAR" />
+    <result column="report_no" property="reportNo" jdbcType="VARCHAR" />
+    <result column="record_detail_auto_id" property="recordDetailAutoId" jdbcType="INTEGER" />
+    <result column="guarantee_date" property="guaranteeDate" jdbcType="VARCHAR" />
+    <result column="warrantee" property="warrantee" jdbcType="VARCHAR" />
+    <result column="id_type" property="idType" jdbcType="VARCHAR" />
+    <result column="id_number" property="idNumber" jdbcType="VARCHAR" />
+    <result column="guarantee_item" property="guaranteeItem" jdbcType="VARCHAR" />
+    <result column="loan_amount" property="loanAmount" jdbcType="DECIMAL" />
+    <result column="guarantee_amount" property="guaranteeAmount" jdbcType="DECIMAL" />
+    <result column="cuttoff_date" property="cuttoffDate" jdbcType="VARCHAR" />
+    <result column="remain_balance" property="remainBalance" jdbcType="DECIMAL" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>
