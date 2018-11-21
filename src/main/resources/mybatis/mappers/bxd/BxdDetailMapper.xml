@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.bxd.BxdDetailMapper">
+  <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.bxd.BxdDetail">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="order_num" jdbcType="VARCHAR" property="orderNum" />
+    <result column="details_id" jdbcType="VARCHAR" property="detailsId" />
+    <result column="insurance_name" jdbcType="VARCHAR" property="insuranceName" />
+    <result column="insurance_type" jdbcType="VARCHAR" property="insuranceType" />
+    <result column="insurance_id" jdbcType="VARCHAR" property="insuranceId" />
+    <result column="insurance_status" jdbcType="VARCHAR" property="insuranceStatus" />
+    <result column="insurance_main" jdbcType="VARCHAR" property="insuranceMain" />
+    <result column="insurance_num" jdbcType="VARCHAR" property="insuranceNum" />
+    <result column="details_id_two" jdbcType="VARCHAR" property="detailsIdTwo" />
+    <result column="attribution" jdbcType="VARCHAR" property="attribution" />
+    <result column="sales_channel" jdbcType="VARCHAR" property="salesChannel" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+
+</mapper>

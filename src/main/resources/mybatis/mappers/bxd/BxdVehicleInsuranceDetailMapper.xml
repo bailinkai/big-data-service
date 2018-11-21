@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.bxd.BxdVehicleInsuranceDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.bxd.BxdVehicleInsuranceDetail" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uuid" property="uuid" jdbcType="VARCHAR" />
+    <result column="order_num" property="orderNum" jdbcType="VARCHAR" />
+    <result column="details_id" property="detailsId" jdbcType="VARCHAR" />
+    <result column="vehicle_adjust_ratio" property="vehicleAdjustRatio" jdbcType="VARCHAR" />
+    <result column="vehicle_adjust_ratio_reason" property="vehicleAdjustRatioReason" jdbcType="VARCHAR" />
+    <result column="vehicle_license_no" property="vehicleLicenseNo" jdbcType="VARCHAR" />
+    <result column="vehicle_car_usage" property="vehicleCarUsage" jdbcType="VARCHAR" />
+    <result column="vehicle_vin_no" property="vehicleVinNo" jdbcType="VARCHAR" />
+    <result column="vehicle_passenger_capacity" property="vehiclePassengerCapacity" jdbcType="VARCHAR" />
+    <result column="vehicle_weighting_capacity" property="vehicleWeightingCapacity" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.bxd.BxdApplicantDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.bxd.BxdApplicantDetail" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uuid" property="uuid" jdbcType="VARCHAR" />
+    <result column="order_num" property="orderNum" jdbcType="VARCHAR" />
+    <result column="details_id" property="detailsId" jdbcType="VARCHAR" />
+    <result column="applicant_address" property="applicantAddress" jdbcType="VARCHAR" />
+    <result column="applicant_id_card_type" property="applicantIdCardType" jdbcType="VARCHAR" />
+    <result column="applicant_cell_phone" property="applicantCellPhone" jdbcType="VARCHAR" />
+    <result column="applicant_email" property="applicantEmail" jdbcType="VARCHAR" />
+    <result column="applicant_name" property="applicantName" jdbcType="VARCHAR" />
+    <result column="applicant_id_card_num" property="applicantIdCardNum" jdbcType="VARCHAR" />
+    <result column="applicant_gender" property="applicantGender" jdbcType="VARCHAR" />
+    <result column="applicant_city" property="applicantCity" jdbcType="VARCHAR" />
+    <result column="applicant_married" property="applicantMarried" jdbcType="VARCHAR" />
+    <result column="applicant_annual_income" property="applicantAnnualIncome" jdbcType="VARCHAR" />
+    <result column="applicant_profession" property="applicantProfession" jdbcType="VARCHAR" />
+    <result column="applicant_health_status" property="applicantHealthStatus" jdbcType="VARCHAR" />
+    <result column="applicant_children" property="applicantChildren" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

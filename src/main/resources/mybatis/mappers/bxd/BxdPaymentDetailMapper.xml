@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.bxd.BxdPaymentDetailMapper">
+    <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.bxd.BxdPaymentDetail">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="uuid" property="uuid" jdbcType="VARCHAR"/>
+        <result column="order_num" property="orderNum" jdbcType="VARCHAR"/>
+        <result column="details_id" property="detailsId" jdbcType="VARCHAR"/>
+        <result column="pay_amt" property="payAmt" jdbcType="VARCHAR"/>
+        <result column="policy_start_date" property="policyStartDate" jdbcType="VARCHAR"/>
+        <result column="end_date" property="endDate" jdbcType="VARCHAR"/>
+        <result column="start_date" property="startDate" jdbcType="VARCHAR"/>
+        <result column="pay_end_date" property="payEndDate" jdbcType="VARCHAR"/>
+        <result column="insurance_amt" property="insuranceAmt" jdbcType="VARCHAR"/>
+        <result column="insurance_premium" property="insurancePremium" jdbcType="VARCHAR"/>
+        <result column="next_pay_date" property="nextPayDate" jdbcType="VARCHAR"/>
+        <result column="pay_need_times" property="payNeedTimes" jdbcType="VARCHAR"/>
+        <result column="pay_had_times" property="payHadTimes" jdbcType="VARCHAR"/>
+        <result column="pay_period" property="payPeriod" jdbcType="VARCHAR"/>
+        <result column="payment_type" property="paymentType" jdbcType="VARCHAR"/>
+        <result column="payment_bank" property="paymentBank" jdbcType="VARCHAR"/>
+        <result column="payment_account" property="paymentAccount" jdbcType="VARCHAR"/>
+        <result column="payment_frequency" property="paymentFrequency" jdbcType="VARCHAR"/>
+        <result column="payment_date_payable" property="paymentDatePayable" jdbcType="VARCHAR"/>
+        <result column="payment_date_charge" property="paymentDateCharge" jdbcType="VARCHAR"/>
+        <result column="payment_premium_payable" property="paymentPremiumPayable" jdbcType="VARCHAR"/>
+        <result column="payment_premium_charge" property="paymentPremiumCharge" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="orderBy" resultMap="BaseResultMap" parameterType="java.lang.String">
+    SELECT
+        insurance_amt,
+        start_date,
+        pay_end_date,
+        pay_amt,
+        pay_had_times,
+        pay_period,
+        payment_frequency,
+        payment_type,
+        next_pay_date,
+        policy_start_date,
+        end_date,
+        pay_need_times,
+        insurance_premium,
+        payment_premium_payable,
+        payment_premium_charge
+
+    FROM
+        bxd_payment_detail
+    WHERE
+        details_id = #{detailsIdTwo}
+    ORDER BY
+        DATE_FORMAT(pay_end_date, '%y%m%d') DESC
+  </select>
+</mapper>

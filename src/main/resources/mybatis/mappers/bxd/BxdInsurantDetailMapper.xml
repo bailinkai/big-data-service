@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingu.project.big.data.persistence.mapper.bxd.BxdInsurantDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.yingu.project.big.data.persistence.entity.bxd.BxdInsurantDetail" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uuid" property="uuid" jdbcType="VARCHAR" />
+    <result column="order_num" property="orderNum" jdbcType="VARCHAR" />
+    <result column="details_id" property="detailsId" jdbcType="VARCHAR" />
+    <result column="insurant_id_card_num" property="insurantIdCardNum" jdbcType="VARCHAR" />
+    <result column="insurant_id_card_type" property="insurantIdCardType" jdbcType="VARCHAR" />
+    <result column="insurant_name" property="insurantName" jdbcType="VARCHAR" />
+    <result column="insurant_relationship" property="insurantRelationship" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>
