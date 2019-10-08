@@ -21,6 +21,7 @@ public class TestResource {
 
     @RequestMapping(value = "/api/zxt/getDetails", method = RequestMethod.POST)
     public ResponseResult InternetData(@RequestBody Map<String, Object> param, HttpServletRequest request, HttpServletResponse response) {
+        //TODO 2
         return new ResponseResult(100900,"三方接口查询为空","{'null':'查寻不到+1'}");
     }
 }
