@@ -26,6 +26,10 @@ public class InternetBankResource {
 
     /**
      * 网银数据
+     * @param param  请求参数的封装
+     * @param request 请求
+     * @param response 响应
+     * @return
      */
     @RequestMapping(value = "/api/cyber/bank", method = RequestMethod.POST)
     public ResponseResult InternetData(@RequestBody Map<String, Object> param, HttpServletRequest request, HttpServletResponse response) {
